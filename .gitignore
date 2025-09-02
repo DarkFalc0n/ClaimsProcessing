@@ -1,0 +1,95 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+.nuget/NuGet.Config
+.nuget/NuGet.exe
+.nuget/packages.config
+.nuget/nuget.config
+
+# Logs
+*.log
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# User-specific files
+*.swp
+*.tmp
+*.temp
+*.DS_Store
+Thumbs.db
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# DotCover
+*.dotCover
+
+# JetBrains
+*.DotSettings.user
+
+# Azure
+PublishProfiles/
+
+# Docker
+**/*.Dockerfile.temp
+**/*.dockerfile.temp
+
+# StyleCop
+StyleCopReport.xml
+
+# Coverage
+coverage*
+TestResults/
+*.coverage
+*.coveragexml
+
+# Entity Framework
+*Migrations/*Designer.cs
+*Migrations/*Snapshot.cs
+
+# wwwroot generated content
+wwwroot/lib/
+
+# Static web assets cache
+**/obj/**/staticwebassets/**
+**/obj/**/*.StaticWebAssets.xml
+
+# Cache
+*.cache
+
+# Secrets
+secrets.json
+appsettings.*.local.json
+
+# Rider / ReSharper caches
+.jetbrains/
+
+# Node (if used for front-end assets)
+node_modules/
+
+# Local tools
+.config/dotnet-tools.json.lock
