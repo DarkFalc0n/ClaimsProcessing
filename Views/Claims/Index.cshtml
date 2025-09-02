@@ -1,0 +1,40 @@
+@model IEnumerable<ClaimsProcessing.Models.Claim>
+@{
+    ViewData["Title"] = "Claims";
+}
+
+<h1>Claims</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Home</a>
+  </p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Policy</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>@item.PolicyNumber</td>
+            <td>@item.ClaimType</td>
+            <td>@item.ClaimAmount</td>
+            <td>@item.Status</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ClaimId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ClaimId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ClaimId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+ </table>
+
+

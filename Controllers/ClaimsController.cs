@@ -22,9 +22,13 @@ namespace ClaimsProcessing.Controllers
 
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null) return NotFound();
-            var claim = await _context.Claims.AsNoTracking().FirstOrDefaultAsync(c => c.ClaimId == id);
-            if (claim == null) return NotFound();
+            if (id == null)
+                return NotFound();
+            var claim = await _context
+                .Claims.AsNoTracking()
+                .FirstOrDefaultAsync(c => c.ClaimId == id);
+            if (claim == null)
+                return NotFound();
             return View(claim);
         }
 
@@ -35,9 +39,12 @@ namespace ClaimsProcessing.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PolicyNumber,ClaimType,Description,ClaimAmount,Status,AgentId")] Claim claim)
+        public async Task<IActionResult> Create(
+            [Bind("PolicyNumber,ClaimType,Description,ClaimAmount,Status,AgentId")] Claim claim
+        )
         {
-            if (!ModelState.IsValid) return View(claim);
+            if (!ModelState.IsValid)
+                return View(claim);
             claim.CreatedAt = DateTime.UtcNow;
             claim.UpdatedAt = DateTime.UtcNow;
             _context.Add(claim);
@@ -47,18 +54,28 @@ namespace ClaimsProcessing.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
             var claim = await _context.Claims.FindAsync(id);
-            if (claim == null) return NotFound();
+            if (claim == null)
+                return NotFound();
             return View(claim);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ClaimId,PolicyNumber,ClaimType,Description,ClaimAmount,Status,AgentId,CreatedAt")] Claim claim)
+        public async Task<IActionResult> Edit(
+            int id,
+            [Bind(
+                "ClaimId,PolicyNumber,ClaimType,Description,ClaimAmount,Status,AgentId,CreatedAt"
+            )]
+                Claim claim
+        )
         {
-            if (id != claim.ClaimId) return NotFound();
-            if (!ModelState.IsValid) return View(claim);
+            if (id != claim.ClaimId)
+                return NotFound();
+            if (!ModelState.IsValid)
+                return View(claim);
 
             try
             {
@@ -82,9 +99,13 @@ namespace ClaimsProcessing.Controllers
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null) return NotFound();
-            var claim = await _context.Claims.AsNoTracking().FirstOrDefaultAsync(c => c.ClaimId == id);
-            if (claim == null) return NotFound();
+            if (id == null)
+                return NotFound();
+            var claim = await _context
+                .Claims.AsNoTracking()
+                .FirstOrDefaultAsync(c => c.ClaimId == id);
+            if (claim == null)
+                return NotFound();
             return View(claim);
         }
 
@@ -102,5 +123,3 @@ namespace ClaimsProcessing.Controllers
         }
     }
 }
-
-

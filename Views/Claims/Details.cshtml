@@ -1,0 +1,26 @@
+@model ClaimsProcessing.Models.Claim
+@{
+    ViewData["Title"] = "Claim Details";
+}
+
+<h1>Claim Details</h1>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Policy</dt>
+        <dd class="col-sm-10">@Model.PolicyNumber</dd>
+        <dt class="col-sm-2">Type</dt>
+        <dd class="col-sm-10">@Model.ClaimType</dd>
+        <dt class="col-sm-2">Amount</dt>
+        <dd class="col-sm-10">@Model.ClaimAmount</dd>
+        <dt class="col-sm-2">Status</dt>
+        <dd class="col-sm-10">@Model.Status</dd>
+        <dt class="col-sm-2">Description</dt>
+        <dd class="col-sm-10">@Model.Description</dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.ClaimId" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</p>
+
+
